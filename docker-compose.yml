@@ -17,6 +17,9 @@ services:
       - "5000:5000"
     links:
       - elasticsearch
+    networks:
+      - logstash
+      - default
   kibana:
     build: kibana/
     volumes:
@@ -27,3 +30,5 @@ services:
       - elasticsearch
 volumes:
   elasticsearch-data:
+networks:
+  logstash:
